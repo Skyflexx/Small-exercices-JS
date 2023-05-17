@@ -28,36 +28,35 @@ box.addEventListener("click", function(){
 
 // EXERCICE 2
 
-const parentEl2 = document.querySelector("#s2")
+const parentEl2 = document.querySelector("#s2") // On détermine l'emplacement où on va mettre nos box
 
-const box2 = document.createElement("div")
+const box2 = document.createElement("div") // Création d'une div qui sera notre box principale.
 
-box2.classList.add("box")
+box2.classList.add("box") // Avec son style CSS associé
 
-for (let i = 1; i <= 4; i++){
+for (let i = 1; i <= 4; i++){ // Boucle afin de cloner la box créée ci dessus. Chaque clone sera injecté dans la section parenEl2
 
-    let newBox = box2.cloneNode()
+    let newBox = box2.cloneNode() // clonage de la box
 
-    newBox.innerText = i
+    newBox.innerText = i // avec le numéro de la box à l'intérieur de celle ci
 
-    parentEl2.appendChild(newBox)
+    parentEl2.appendChild(newBox) // Et affichage dans le HTML
 
-    let isClicked = false
+    let isClicked = false // Variable qui servira de référence. Lors du clic sur la boite, si isclicked est false alors on ajoute modifie sa classe CSS. La variable passe à true.
 
     newBox.addEventListener("click", function(){
 
-        if (!isClicked){
-            isClicked = true
+        if (!isClicked){ // Si lors du clic c'est False, alors on ajoute la classe CSS. On passe la variable à true.
+
             newBox.classList.add("box-click") 
+            isClicked = true
+            
+        } else {   // Si lors du clic c'est true, alors on remove la classe CSS et on repasse à false pour la réinitialisation d'origine
 
-
-        } else {            
-            isClicked = false
             newBox.classList.remove("box-click") 
+            isClicked = false
         }
 
-         
-               
     })
 
    
