@@ -16,6 +16,8 @@
 /* Style Exo 2 */
 
 .box {
+    line-height: 75px; /*Indique la hauteur de ligne pour un centrage vertical du texte*/
+    text-align: center;    
     width : 75px;
     height : 75px;
     border : 1px solid black;
@@ -24,6 +26,7 @@
 }
 
 .box-click{
+    
     margin : 3.75px;    
     width : 67.5px;
     height : 67.5px;
