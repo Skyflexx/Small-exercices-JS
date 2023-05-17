@@ -31,3 +31,45 @@ box.addEventListener("click", function(){
 const parentEl2 = document.querySelector("#s2")
 
 const box2 = document.createElement("div")
+
+box2.classList.add("box")
+
+for (let i = 1; i <= 4; i++){
+
+    let newBox = box2.cloneNode()
+
+    newBox.innerText = i
+
+    parentEl2.appendChild(newBox)
+
+    let isClicked = false
+
+    newBox.addEventListener("click", function(){
+
+        if (!isClicked){
+            isClicked = true
+            newBox.classList.add("box-click") 
+
+
+        } else {            
+            isClicked = false
+            newBox.classList.remove("box-click") 
+        }
+
+         
+               
+    })
+
+   
+
+   
+
+    
+    
+
+    
+}
+
+
+
+
