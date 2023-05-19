@@ -57,17 +57,33 @@ for (let i = 1; i <= 4; i++){ // Boucle afin de cloner la box créée ci dessus.
             isClicked = false
         }
 
-    })
+    })}
 
-   
+// Exercice 3
 
-   
+const parentEl3 = document.querySelector("#s3")
 
-    
-    
+const box3 = document.createElement("div")
 
-    
-}
+box3.classList.add("box3")
+
+document.onkeydown = function(event){
+
+    if (event.key == "ArrowUp"){ // .keyCode est deprecated. On utilise key et le texte ArrowUp. Attention à la casse.
+
+        let newBox3 = box3.cloneNode()
+        parentEl3.appendChild(newBox3)
+
+        newBox3.style.backgroundColor = "#" + (Math.floor(Math.random()*16777215).toString(16))
+
+        
+    } 
+
+}  // IN PROGRESS. Les box se créent mais ne se delete pas encore.
+
+
+
+
 
 
 

@@ -43,3 +43,16 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+/*Style Exo 3*/
+
+#s3{
+    display : flex;
+    flex-wrap: wrap;
+}
+
+.box3{
+    width : 60px;
+    height : 60px;
+    background-color : rgba(255, 81, 0, 0.685);
+}
