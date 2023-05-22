@@ -73,17 +73,33 @@ document.onkeydown = function(event){
 
     if (event.key == "ArrowDown"){ // .keyCode est deprecated. On utilise key et le texte ArrowDown. Attention à la casse.
 
-        i++ // On incrémente i défini plus haut. Ce qui donnera des box avec des id style "box1", "box2" etc
+        if (i != 225) {
 
-        let newBox3 = box3.cloneNode() // On clone notre box déclarée au début.
+            i++ // On incrémente i défini plus haut. Ce qui donnera des box avec des id style "box1", "box2" etc
 
-        newBox3.id = "currBox" + i // Et on lui attribue un id spécifique dont le nom sera currBox1, puis currBox2 etc vu qu'on le concatène avec i.
+            let newBox3 = box3.cloneNode() // On clone notre box déclarée au début.
 
-        parentEl3.appendChild(newBox3) // Et on la fait apparaître.
+            newBox3.id = "currBox" + i // Et on lui attribue un id spécifique dont le nom sera currBox1, puis currBox2 etc vu qu'on le concatène avec i.
 
-        // on fait un floor d'un chiffre random (entre 0 et 1 * 16m de couleurs) qu'on ressort en tostring (base 16) ce qui sortira une suite de caractères hexadecimaux. Soit des chiffres, soit des lettres.
-        newBox3.style.backgroundColor = "#" + (Math.floor(Math.random()*16777215).toString(16)) // Attribution d'une couleur aléatoire au style CSS
-       
+            parentEl3.appendChild(newBox3) // Et on la fait apparaître.
+
+            // on fait un floor d'un chiffre random (entre 0 et 1 * 16m de couleurs) qu'on ressort en tostring (base 16) ce qui sortira une suite de caractères hexadecimaux. Soit des chiffres, soit des lettres.
+            newBox3.style.backgroundColor = "#" + (Math.floor(Math.random()*16777215).toString(16)) // Attribution d'une couleur aléatoire au style CSS
+        
+            if (i == 225){ // dans la même condition, si i = 225, on a créé notre 15*15
+
+                for(n = 1; n<= 225; n++){ // On créé une boucle pour récupérer tous les id's de toutes les box afin de les rendre cliquables
+
+                    let idOfBox = "currBox" + n // récupération des id's des box.
+
+                    document.getElementById(idOfBox).addEventListener("click", function(){
+
+                        document.getElementById(idOfBox).style.backgroundColor = "black" // en cas de clic la case devient noire.
+                        
+                    })
+                }
+            }          
+        }   
     } 
     
     let currBox = document.getElementById(("currBox" + i)) // Pour la suite, on récupère le dernier élément créé en concaténant "currBox" avec le i actuel dans le script.
