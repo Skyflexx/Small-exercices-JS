@@ -96,6 +96,50 @@ document.onkeydown = function(event){
     }
 }  
 
+// Exercice 4
+
+// Déclarations
+
+// Création de notre formulaire
+const section4 = document.querySelector("#s4")
+const form = document.createElement("input")
+section4.appendChild(form)
+
+// Ajout d'un id, d'une classe CSS, d'une valeur et d'un type à notre formulaire
+form.classList.add("formEl")
+form.id = "inputEl"
+form.value = "Saisir montant en euro"
+form.type = "text"
+
+// Ajout d'un paragraphe qui servira pour afficher des messages dont le resultat en live de la conversion
+const message = document.createElement("p")
+section4.appendChild(message)
+message.textContent = "Valeur en francs :"
+
+// Fonctions
+
+form.addEventListener("click", function(){ // Au clic de l'inputField, on la vide à chaque fois comme une réinitialisation
+    form.value = ""
+    message.textContent = "Valeur en francs :" // On réaffiche le message de base.
+})
+
+form.onkeyup = function(){ // form.onkeyup, càd si une touche du clavier est levée. (onkeydown ne fonctionnait pas correctement pour cette fct)
+
+   if (isNaN(form.value)){ // isNaN est une fct native de JS pour "Is Not a Number". Retourne true si c'est le cas. Donc si true alors on affiche un message d'alerte.
+
+    message.textContent = "Veuillez saisir un nombre !" // msg d'alerte si on ne rentre pas de nombre.
+
+   } else {
+
+    message.textContent = "Valeur en francs : " + ((form.value) * 6.55957).toFixed(2) // nombre.toFixed(2) veut dire qu'on fixe les décimales à 2 max.
+
+   } 
+}
+
+
+
+
+
 
 
 
