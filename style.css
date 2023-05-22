@@ -49,6 +49,7 @@
 #s3{
     display : flex;
     flex-wrap: wrap;
+    width : 900px;
 }
 
 .box3{
